@@ -109,7 +109,37 @@ static const char *colorname[] = {
   /* special colors */
   [256] = "#282a36", /* background */
   [257] = "#f8f8f2", /* foreground */
-  [258] = "#ffdd33", /* super-yellow */
+  [258] = "#ffdd33", /* cursor */
+};
+
+
+/* Terminal colors (16 first used in escape sequence) */
+static const char *altcolorname[] = {
+
+  /* 8 normal colors */
+  [0] = "#bbbbbb", /* white   */
+  [1] = "#ff5555", /* red     */
+  [2] = "#50fa7b", /* green   */
+  [3] = "#f1fa8c", /* yellow  */
+  [4] = "#bd93f9", /* blue    */
+  [5] = "#ff79c6", /* magenta */
+  [6] = "#8be9fd", /* cyan    */
+  [7] = "#000000", /* black   */
+
+  /* 8 bright colors */
+  [8] = "#ffffff", /* white   */
+  [9]  = "#ff5555", /* red     */
+  [10] = "#50fa7b", /* green   */
+  [11] = "#f1fa8c", /* yellow  */
+  [12] = "#bd93f9", /* blue    */
+  [13] = "#ff79c6", /* magenta */
+  [14] = "#8be9fd", /* cyan    */
+  [15]  = "#44475a", /* black   */
+
+  /* special colors */
+  [256] = "gray70", /* background */
+  [257] = "black", /* foreground */
+  [258] = "gray10", /* cursor */
 };
 
 /*
@@ -198,6 +228,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
 	{ MODKEY,               XK_k,           kscrollup,      {.i =  2} },
 	{ MODKEY,               XK_j,           kscrolldown,    {.i =  2} },
+	{ XK_ANY_MOD,           XK_F6,          swapcolors,     {.i =  0} },
 };
 
 /*
