@@ -6,7 +6,6 @@ include config.mk
 
 SRC = st.c x.c
 OBJ = $(SRC:.c=.o)
-DESKTOP_ENTRY=~/.local/share/applications/st.desktop
 
 all: options st
 
@@ -50,11 +49,11 @@ install: st
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/st.1
 	tic -sx st.info
 	@echo Please see the README file regarding the terminfo entry of st.
-	cp -f st.desktop $(DESKTOP_ENTRY)
+	cp -f st.desktop /usr/share/applications
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
-	rm -f $(DESKTOP_ENTRY)
+	rm -f /usr/share/applications/st.desktop
 
 .PHONY: all options clean dist install uninstall
