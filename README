@@ -21,6 +21,7 @@ Afterwards enter the following command to build and install st (if
 necessary as root):
 
     make clean install
+    make copy-application-desktop:
 
 
 Running st
