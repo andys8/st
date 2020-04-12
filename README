@@ -9,7 +9,7 @@ In order to build st you need the Xlib header files.
 
 Debian/Ubuntu:
 
-    sudo apt-get install libx11-dev libxft-dev fontconfig
+    sudo apt-get install libx11-dev libxft-dev fontconfig libxcursor-dev
 
 
 Installation
