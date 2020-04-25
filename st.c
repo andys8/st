@@ -1129,7 +1129,8 @@ tscrolldown(int orig, int n, int copyhist)
 		term.line[i-n] = temp;
 	}
 
-	selscroll(orig, n);
+	if (term.scr == 0)
+		selscroll(orig, n);
 }
 
 void
@@ -1159,7 +1160,8 @@ tscrollup(int orig, int n, int copyhist)
 		term.line[i+n] = temp;
 	}
 
-	selscroll(orig, -n);
+	if (term.scr == 0)
+		selscroll(orig, -n);
 }
 
 void
@@ -2675,7 +2677,7 @@ draw(void)
 	drawregion(0, 0, term.col, term.row);
 	if (term.scr == 0)
 		xdrawcursor(cx, term.c.y, term.line[term.c.y][cx],
-			term.ocx, term.ocy, term.line[term.ocy][term.ocx]);
+				term.ocx, term.ocy, term.line[term.ocy][term.ocx]);
 	term.ocx = cx, term.ocy = term.c.y;
 	xfinishdraw();
 }
