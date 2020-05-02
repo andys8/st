@@ -5,8 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-static int borderpx = 2;
+/* static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true"; */
+static char *font = "Iosevka Nerd Font-14";
+/* static int borderpx = 2; */
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -64,8 +66,8 @@ static unsigned int cursorthickness = 2;
  *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
  * 0: disable (render all U25XX glyphs normally from the font).
  */
-const int boxdraw = 0;
-const int boxdraw_bold = 0;
+const int boxdraw = 1;
+const int boxdraw_bold = 1;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
 const int boxdraw_braille = 0;
@@ -122,6 +124,7 @@ static const char *colorname[] = {
   /* special colors */
   [256] = "#282a36", /* background */
   [257] = "#f8f8f2", /* foreground */
+  [258] = "#ffdd33", /* super-yellow */
 };
 
 /*
@@ -130,7 +133,7 @@ static const char *colorname[] = {
  */
 unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
-static unsigned int defaultcs = 257;
+static unsigned int defaultcs = 258;
 static unsigned int defaultrcs = 257;
 
 /*
@@ -159,7 +162,7 @@ static unsigned int rows = 24;
 /*
  * Default shape of the mouse cursor
  */
-static char* mouseshape = "xterm";
+static char* mouseshape = "left_ptr";
 
 /*
  * Color used to display font attributes when fontconfig selected a font which
@@ -180,8 +183,8 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ ShiftMask,            Button4, kscrollup,      {.i = 1} },
-	{ ShiftMask,            Button5, kscrolldown,    {.i = 1} },
+	{ ShiftMask,            Button4, kscrollup,      {.i = 2} },
+	{ ShiftMask,            Button5, kscrolldown,    {.i = 2} },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
 	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
@@ -208,6 +211,11 @@ static Shortcut shortcuts[] = {
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
+	{ ControlMask,          XK_plus,        zoom,           {.f = +1} },
+	{ ControlMask,          XK_minus,       zoom,           {.f = -1} },
+	{ ControlMask,          XK_0,           zoomreset,      {.f =  0} },
+	{ MODKEY,               XK_k,           kscrollup,      {.i =  2} },
+	{ MODKEY,               XK_j,           kscrolldown,    {.i =  2} },
 };
 
 /*

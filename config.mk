@@ -1,5 +1,5 @@
 # st version
-VERSION = 0.8.3
+VERSION = 0.8.3-andys8
 
 # Customize below to fit your system
 
