@@ -59,4 +59,4 @@ uninstall:
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
 	rm -f $(DESTDIR)$(PREFIX)/share/applications/st.desktop
 
-.PHONY: all options clean dist install uninstall
+.PHONY: all options clean dist install uninstall config.h
