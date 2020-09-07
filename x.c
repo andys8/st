@@ -2024,11 +2024,11 @@ run(void)
 void
 usage(void)
 {
-	die("usage: %s [-aiv] [-c class] [-f font] [-g geometry]"
+	die("usage: %s [-aisv] [-c class] [-f font] [-g geometry]"
 	    " [-n name] [-o file]\n"
 	    "          [-T title] [-t title] [-w windowid]"
 	    " [[-e] command [args ...]]\n"
-	    "       %s [-aiv] [-c class] [-f font] [-g geometry]"
+	    "       %s [-aisv] [-c class] [-f font] [-g geometry]"
 	    " [-n name] [-o file]\n"
 	    "          [-T title] [-t title] [-w windowid] -l line"
 	    " [stty_args ...]\n", argv0, argv0);
@@ -2081,6 +2081,10 @@ main(int argc, char *argv[])
 	case 'v':
 		die("%s " VERSION "\n", argv0);
 		break;
+    case 's':
+        // scratchpad with darker background
+        colorname[256] = "#1F222B";
+        break;
 	default:
 		usage();
 	} ARGEND;
