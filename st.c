@@ -1622,6 +1622,10 @@ tsetmode(int priv, int set, const int *args, int narg)
 				break;
 			case 2004: /* 2004: bracketed paste mode */
 				xsetmode(set, MODE_BRCKTPASTE);
+                // Workaround: Cursor is sometimes hidden and won't show up
+                // This is due to 25
+                // Enabling it on 2004 again, will show the cursor on Enter
+				xsetmode(0, MODE_HIDE);
 				break;
 			/* Not implemented mouse modes. See comments there. */
 			case 1001: /* mouse highlight mode; can hang the
